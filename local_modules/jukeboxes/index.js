@@ -2,6 +2,13 @@ const request = require('../request');
 
 module.exports = {
 
+    /**
+     * Returns array of jukes which contains required components.
+     * @param {Array<object>} jukes - Array of jukes objects
+     * @param {Array<string>} requiredComponents - Array of components
+     *
+     * @returns {Array<object>} returns array of jukes objects
+     */
     getJukeboxes(jukes, requiredComponents) {
         const result = [];
         jukes.forEach((juke) => {
@@ -14,6 +21,13 @@ module.exports = {
         return result;
     },
 
+    /**
+     * Filter the result based on passed options
+     * @param {Array<object>} eligibleJukeBoxes - Array of jukes objects
+     * @param {Object} options - filters need to be applied
+     *
+     * @returns {Array<object>} filtered result of the object.
+     */
     filterResult(eligibleJukeBoxes, options) {
         let result = eligibleJukeBoxes;
         if (options.model) {
@@ -28,6 +42,11 @@ module.exports = {
         return result.slice(options.offset, limit);
     },
 
+    /**
+     * Function to retrieve result for the specified settings.
+     * @param {Express<Request>} req - Express request object
+     * @param {Express<Response>} res - Express response object
+     */
     jukeboxesList(req, res) {
         const options = Object.assign(req.query, req.body);
 
