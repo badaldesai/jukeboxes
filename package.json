@@ -4,6 +4,7 @@
   "description": "API to get jukeboxes from the settings",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "lint": "eslint \"**/*.js\"",
     "test": "mocha test"
   },
